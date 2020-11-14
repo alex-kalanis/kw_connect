@@ -1,0 +1,25 @@
+{
+  "name": "alex-kalanis/kw_connect",
+  "description": "Connecting inputs into respective targets",
+  "keywords": [],
+  "license": "BSD 3-Clause",
+  "type": "project",
+  "require": {
+    "alex-kalanis/filter": "dev-master",
+    "alex-kalanis/sorter": "dev-master",
+    "alex-kalanis/pager": "dev-master",
+    "php": ">=7.2.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~7.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "kalanis\\kw_connect\\": "php-src/"
+    }
+  },
+  "scripts": {
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
