@@ -11,12 +11,12 @@ This is the mixed package - contains sever-side implementation in Python and PHP
 ```
 {
     "require": {
-        "alex-kalanis/kw_input": "dev-master"
+        "alex-kalanis/kw_connect": "dev-master"
     },
     "repositories": [
         {
             "type": "http",
-            "url":  "https://github.com/alex-kalanis/kw_input.git"
+            "url":  "https://github.com/alex-kalanis/kw_connect.git"
         }
     }
 }
@@ -30,8 +30,9 @@ familiar with composer)
 
 1.) Use your autoloader (if not already done via Composer autoloader)
 
-2.) Connect the "kw_input" into your app. When it came necessary
-you can extends every library to comply your use-case; mainly your init ad reading.
+2.) Connect the "kw_connect" into your app. When it came necessary
+you can extends every library to comply your use-case; mainly for describe your
+searched inputs.
 
 # Python Installation
 
@@ -39,12 +40,12 @@ into your "setup.py":
 
 ```
     install_requires=[
-        'kw_input',
+        'kw_connect',
     ]
 ```
 
 # Python Usage
 
-1.) Connect the "kw_input\inputs" into your app. When it came necessary
-you can extends every library to comply your use-case; mainly your storage and
-processing.
+1.) Connect the "kw_connect\connect" into your app. When it came necessary
+you can extends every library to comply your use-case; mainly for describe your
+searched inputs.
