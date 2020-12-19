@@ -4,6 +4,7 @@ namespace kalanis\kw_connect\Configs;
 
 
 use kalanis\kw_connect\Entries\FilterEntry;
+use kalanis\kw_connect\Interfaces\IFilterEntries;
 
 
 /**

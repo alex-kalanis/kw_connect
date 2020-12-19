@@ -1,9 +1,9 @@
 import unittest
 from kw_connect.configs import AEntries, FilterEntries, SorterEntries, Config
 from kw_connect.entries import FilterEntry, SorterEntry, PagerEntry
-from kw_filter.filter import IFilterEntry
-from kw_input.entries import IEntry as Input
-from kw_sorter.sorter import ISortEntry
+from kw_filter.interfaces import IFilterEntry
+from kw_input.interfaces import IEntry as Input
+from kw_sorter.interfaces import ISortEntry
 
 
 class CommonTestClass(unittest.TestCase):

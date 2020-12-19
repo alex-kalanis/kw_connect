@@ -1,8 +1,8 @@
 
 from .interfaces import IEntry, IPagerEntry
-from kw_filter.filter import IFilterEntry
-from kw_input.entries import IEntry as Input
-from kw_sorter.sorter import ISortEntry
+from kw_filter.interfaces import IFilterEntry
+from kw_input.interfaces import IEntry as Input
+from kw_sorter.interfaces import ISortEntry
 
 
 class AEntry(IEntry):

@@ -3,12 +3,11 @@
 namespace kalanis\kw_connect;
 
 
-use Filter\IFilter;
-use kalanis\kw_connect\Configs\IConfig;
-use kalanis\kw_connect\Entries\IEntry;
-use kalanis\kw_input\IInputs;
-use Pager\IPager;
-use Sorter\ISorter;
+use Filter\Interfaces\IFilter;
+use kalanis\kw_connect\Interfaces;
+use kalanis\kw_input\Interfaces\IInputs;
+use Pager\Interfaces\IPager;
+use Sorter\Interfaces\ISorter;
 use Traversable;
 
 
@@ -17,9 +16,9 @@ use Traversable;
  * @package kalanis\kw_connect
  * Connections between inputs and params for queries
  */
-class Connect implements IConnect
+class Connect implements Interfaces\IConnect
 {
-    /** @var IConfig|null */
+    /** @var Interfaces\IConfig|null */
     protected $config = null;
     /** @var IFilter|null */
     protected $filter = null;
@@ -37,13 +36,13 @@ class Connect implements IConnect
         $this->pager = $pager;
     }
 
-    public function setConfig(IConfig $config): IConnect
+    public function setConfig(Interfaces\IConfig $config): Interfaces\IConnect
     {
         $this->config = $config;
         return $this;
     }
 
-    public function setInputs(IInputs $inputs): IConnect
+    public function setInputs(IInputs $inputs): Interfaces\IConnect
     {
         $this->inputs = $inputs;
         return $this;
@@ -53,7 +52,7 @@ class Connect implements IConnect
      * @return $this
      * @throws ConnectException
      */
-    public function process(): IConnect
+    public function process(): Interfaces\IConnect
     {
         if (empty($this->config)) {
             throw new ConnectException('No config transcription what to set to what.');
@@ -123,13 +122,13 @@ class Connect implements IConnect
 
     /**
      * @param Traversable $entries
-     * @return IEntry[]
+     * @return Interfaces\IEntry[]
      */
     protected function combineTarget(Traversable $entries): array
     {
         $result = [];
         foreach ($entries as $entry) {
-            if ($entry instanceof IEntry) {
+            if ($entry instanceof Interfaces\IEntry) {
                 $result[$entry->getKey()] = $entry;
             }
         }

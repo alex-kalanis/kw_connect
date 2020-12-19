@@ -3,6 +3,9 @@
 namespace kalanis\kw_connect\Entries;
 
 
+use kalanis\kw_connect\Interfaces\IEntry;
+
+
 /**
  * Class AEntry
  * @package kalanis\kw_connect\Entries

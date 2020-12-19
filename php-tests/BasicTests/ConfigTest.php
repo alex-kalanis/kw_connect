@@ -1,11 +1,11 @@
 <?php
 
 
-use Filter\IFilterEntry;
+use Filter\Interfaces\IFilterEntry;
 use kalanis\kw_connect\Configs;
-use kalanis\kw_connect\Entries\IEntry;
-use kalanis\kw_input\Entries\IEntry as Input;
-use Sorter\ISortEntry;
+use kalanis\kw_connect\Interfaces\IEntry;
+use kalanis\kw_input\Interfaces\IEntry as Input;
+use Sorter\Interfaces\ISortEntry;
 
 
 class ConfigTest extends CommonTestClass
@@ -13,7 +13,7 @@ class ConfigTest extends CommonTestClass
     public function testFilterEntry()
     {
         $data = new Configs\FilterEntries();
-        $this->assertInstanceOf('\kalanis\kw_connect\Configs\IEntries', $data);
+        $this->assertInstanceOf('\kalanis\kw_connect\Interfaces\IEntries', $data);
 
         $this->assertEmpty($data->getSource());
         $this->assertEmpty(iterator_to_array($data->getEntries()));
@@ -59,7 +59,7 @@ class ConfigTest extends CommonTestClass
     public function testSorterEntry()
     {
         $data = new Configs\SorterEntries();
-        $this->assertInstanceOf('\kalanis\kw_connect\Configs\IEntries', $data);
+        $this->assertInstanceOf('\kalanis\kw_connect\Interfaces\IEntries', $data);
 
         $this->assertEmpty($data->getSource());
         $this->assertEmpty(iterator_to_array($data->getEntries()));
@@ -105,9 +105,9 @@ class ConfigTest extends CommonTestClass
     public function testConfig()
     {
         $data = new Configs\Config($this->entriesFilter1(), $this->entriesSorter1(), $this->entryPager1());
-        $this->assertInstanceOf('\kalanis\kw_connect\Configs\IEntries', $data->getFilterEntries());
-        $this->assertInstanceOf('\kalanis\kw_connect\Configs\IEntries', $data->getSorterEntries());
-        $this->assertInstanceOf('\kalanis\kw_connect\Configs\IEntries', $data->getPagerEntries());
-        $this->assertInstanceOf('\kalanis\kw_connect\Entries\IPagerEntry', $data->getPagerEntries());
+        $this->assertInstanceOf('\kalanis\kw_connect\Interfaces\IEntries', $data->getFilterEntries());
+        $this->assertInstanceOf('\kalanis\kw_connect\Interfaces\IEntries', $data->getSorterEntries());
+        $this->assertInstanceOf('\kalanis\kw_connect\Interfaces\IEntries', $data->getPagerEntries());
+        $this->assertInstanceOf('\kalanis\kw_connect\Interfaces\IPagerEntry', $data->getPagerEntries());
     }
 }

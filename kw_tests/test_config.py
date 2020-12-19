@@ -2,9 +2,9 @@
 from kw_connect.interfaces import IEntries, IPagerEntry
 from kw_connect.configs import FilterEntries, SorterEntries, Config
 from kw_tests.common_class import CommonTestClass
-from kw_filter.filter import IFilterEntry
-from kw_sorter.sorter import ISortEntry
-from kw_input.entries import IEntry as Input
+from kw_filter.interfaces import IFilterEntry
+from kw_sorter.interfaces import ISortEntry
+from kw_input.interfaces import IEntry as Input
 
 
 class ConfigTest(CommonTestClass):

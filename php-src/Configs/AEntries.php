@@ -3,8 +3,8 @@
 namespace kalanis\kw_connect\Configs;
 
 
-use kalanis\kw_connect\Entries\IEntry;
-use kalanis\kw_input\Entries\IEntry as Input;
+use kalanis\kw_connect\Interfaces;
+use kalanis\kw_input\Interfaces\IEntry as Input;
 use Traversable;
 
 
@@ -13,10 +13,10 @@ use Traversable;
  * @package kalanis\kw_connect\Configs
  * Simple entry of configuration
  */
-abstract class AEntries implements IEntries
+abstract class AEntries implements Interfaces\IEntries
 {
     protected $source = '';
-    /** @var IEntry[] */
+    /** @var Interfaces\IEntry[] */
     protected $entries = [];
 
     protected static $availableSources = [

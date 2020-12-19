@@ -16,3 +16,9 @@ __pycache__
 # checks
 phpunit
 phpunit-*
+
+php-tests/external/
+kw_filter/
+kw_input/
+kw_pager/
+kw_sorter/

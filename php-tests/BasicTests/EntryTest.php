@@ -1,9 +1,9 @@
 <?php
 
-use Filter\IFilterEntry;
+use Filter\Interfaces\IFilterEntry;
 use kalanis\kw_connect\Entries;
-use kalanis\kw_input\Entries\IEntry;
-use Sorter\ISortEntry;
+use kalanis\kw_input\Interfaces\IEntry;
+use Sorter\Interfaces\ISortEntry;
 
 
 class EntryTest extends CommonTestClass
@@ -11,7 +11,7 @@ class EntryTest extends CommonTestClass
     public function testFilterEntry()
     {
         $data = new Entries\FilterEntry();
-        $this->assertInstanceOf('\kalanis\kw_connect\Entries\IEntry', $data);
+        $this->assertInstanceOf('\kalanis\kw_connect\Interfaces\IEntry', $data);
 
         $this->assertEmpty($data->getKey());
         $this->assertEmpty($data->getLimitationKey());
@@ -31,7 +31,7 @@ class EntryTest extends CommonTestClass
     public function testSorterEntry()
     {
         $data = new Entries\SorterEntry();
-        $this->assertInstanceOf('\kalanis\kw_connect\Entries\IEntry', $data);
+        $this->assertInstanceOf('\kalanis\kw_connect\Interfaces\IEntry', $data);
 
         $this->assertEmpty($data->getKey());
         $this->assertEmpty($data->getLimitationKey());
@@ -51,8 +51,8 @@ class EntryTest extends CommonTestClass
     public function testPagerEntry()
     {
         $data = new Entries\PagerEntry();
-        $this->assertInstanceOf('\kalanis\kw_connect\Entries\IEntry', $data);
-        $this->assertInstanceOf('\kalanis\kw_connect\Configs\IEntries', $data);
+        $this->assertInstanceOf('\kalanis\kw_connect\Interfaces\IEntry', $data);
+        $this->assertInstanceOf('\kalanis\kw_connect\Interfaces\IEntries', $data);
 
         $this->assertEmpty($data->getSource());
         $this->assertEmpty($data->getKey());

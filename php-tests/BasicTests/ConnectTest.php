@@ -1,13 +1,13 @@
 <?php
 
 use kalanis\kw_connect\Connect;
-use kalanis\kw_input\Entries\IEntry as InputEntry;
-use kalanis\kw_input\IInputs;
-use Filter\IFilter;
-use Filter\IFilterEntry;
-use Pager\IPager;
-use Sorter\ISorter;
-use Sorter\ISortEntry;
+use kalanis\kw_input\Interfaces\IEntry as InputEntry;
+use kalanis\kw_input\Interfaces\IInputs;
+use Filter\Interfaces\IFilter;
+use Filter\Interfaces\IFilterEntry;
+use Pager\Interfaces\IPager;
+use Sorter\Interfaces\ISorter;
+use Sorter\Interfaces\ISortEntry;
 
 
 class ConnectTest extends CommonTestClass
@@ -18,9 +18,9 @@ class ConnectTest extends CommonTestClass
     public function testBasic()
     {
         $connect = new Connect(new MockFilter(), new MockSorter(), new MockPager());
-        $this->assertInstanceOf('\Filter\IFilter', $connect->getFilter());
-        $this->assertInstanceOf('\Sorter\ISorter', $connect->getSorter());
-        $this->assertInstanceOf('\Pager\IPager', $connect->getPager());
+        $this->assertInstanceOf('\Filter\Interfaces\IFilter', $connect->getFilter());
+        $this->assertInstanceOf('\Sorter\Interfaces\ISorter', $connect->getSorter());
+        $this->assertInstanceOf('\Pager\Interfaces\IPager', $connect->getPager());
 
         $connect->setInputs((new MockInputs())->setSource());
 

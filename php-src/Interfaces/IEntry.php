@@ -1,11 +1,11 @@
 <?php
 
-namespace kalanis\kw_connect\Entries;
+namespace kalanis\kw_connect\Interfaces;
 
 
 /**
  * Interface IEntry
- * @package kalanis\kw_connect\Entries
+ * @package kalanis\kw_connect\Interfaces
  * Config entry
  */
 interface IEntry
@@ -27,9 +27,9 @@ interface IEntry
     /**
      * Default value of entry
      * for Filter it's Relation against value
-     * possible values are constants from \Filter\IFilterEntry
+     * possible values are constants from \Filter\Interfaces\IFilterEntry
      * for Sorter it's Direction
-     * possible values are constants from \Sorter\ISortEntry
+     * possible values are constants from \Sorter\Interfaces\ISortEntry
      * for Pager it's number
      * @return string|int
      */

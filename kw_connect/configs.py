@@ -1,7 +1,7 @@
 
 from .interfaces import IEntries, IFilterEntries, ISorterEntries, IPagerEntry, IConfig
 from .entries import FilterEntry, SorterEntry
-from kw_input.entries import IEntry as Input
+from kw_input.interfaces import IEntry as Input
 
 
 class AEntries(IEntries):

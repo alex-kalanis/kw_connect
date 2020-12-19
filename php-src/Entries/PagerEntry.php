@@ -3,7 +3,8 @@
 namespace kalanis\kw_connect\Entries;
 
 
-use kalanis\kw_input\Entries\IEntry as Input;
+use kalanis\kw_connect\Interfaces;
+use kalanis\kw_input\Interfaces\IEntry as Input;
 use Traversable;
 
 
@@ -12,7 +13,7 @@ use Traversable;
  * @package kalanis\kw_connect\Entries
  * Simple entry of pager config - just what entry is important for pager
  */
-class PagerEntry extends AEntry implements IPagerEntry
+class PagerEntry extends AEntry implements Interfaces\IPagerEntry
 {
     protected $source = '';
 

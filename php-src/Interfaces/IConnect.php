@@ -1,18 +1,17 @@
 <?php
 
-namespace kalanis\kw_connect;
+namespace kalanis\kw_connect\Interfaces;
 
 
-use Filter\IFilter;
-use kalanis\kw_connect\Configs\IConfig;
-use kalanis\kw_input\IInputs;
-use Pager\IPager;
-use Sorter\ISorter;
+use Filter\Interfaces\IFilter;
+use kalanis\kw_input\Interfaces\IInputs;
+use Pager\Interfaces\IPager;
+use Sorter\Interfaces\ISorter;
 
 
 /**
  * Interface IConnect
- * @package kalanis\kw_connect
+ * @package kalanis\kw_connect\Interfaces
  * How to connect data from inputs to filter, sorter and pager
  */
 interface IConnect

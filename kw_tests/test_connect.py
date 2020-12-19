@@ -1,11 +1,11 @@
 
 from kw_connect.connect import Connect, ConnectException
 from kw_tests.common_class import CommonTestClass
-from kw_filter.filter import IFilter, IFilterEntry
-from kw_sorter.sorter import ISorter, ISortEntry
-from kw_pager.pager import IPager
-from kw_input.entries import IEntry as InputEntry
-from kw_input.input import IInputs
+from kw_filter.interfaces import IFilter, IFilterEntry
+from kw_sorter.interfaces import ISorter, ISortEntry
+from kw_pager.interfaces import IPager
+from kw_input.interfaces import IEntry as InputEntry
+from kw_input.interfaces import IInputs
 
 
 class ConnectTest(CommonTestClass):

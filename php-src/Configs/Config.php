@@ -3,7 +3,7 @@
 namespace kalanis\kw_connect\Configs;
 
 
-use kalanis\kw_connect\Entries\IPagerEntry;
+use kalanis\kw_connect\Interfaces;
 
 
 /**
@@ -11,33 +11,33 @@ use kalanis\kw_connect\Entries\IPagerEntry;
  * @package kalanis\kw_connect\Configs
  * Whole configuration package
  */
-class Config implements IConfig
+class Config implements Interfaces\IConfig
 {
-    /** @var IFilterEntries */
+    /** @var Interfaces\IFilterEntries */
     protected $filterEntries = null;
-    /** @var ISorterEntries */
+    /** @var Interfaces\ISorterEntries */
     protected $sorterEntries = null;
-    /** @var IPagerEntry */
+    /** @var Interfaces\IPagerEntry */
     protected $pagerEntry = null;
 
-    public function __construct(IFilterEntries $filterEntries, ISorterEntries $sorterEntries, IPagerEntry $pagerEntry)
+    public function __construct(Interfaces\IFilterEntries $filterEntries, Interfaces\ISorterEntries $sorterEntries, Interfaces\IPagerEntry $pagerEntry)
     {
         $this->filterEntries = $filterEntries;
         $this->sorterEntries = $sorterEntries;
         $this->pagerEntry = $pagerEntry;
     }
 
-    public function getFilterEntries(): IFilterEntries
+    public function getFilterEntries(): Interfaces\IFilterEntries
     {
         return $this->filterEntries;
     }
 
-    public function getSorterEntries(): ISorterEntries
+    public function getSorterEntries(): Interfaces\ISorterEntries
     {
         return $this->sorterEntries;
     }
 
-    public function getPagerEntries(): IPagerEntry
+    public function getPagerEntries(): Interfaces\IPagerEntry
     {
         return $this->pagerEntry;
     }

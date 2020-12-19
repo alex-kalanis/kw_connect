@@ -1,6 +1,6 @@
 <?php
 
-namespace kalanis\kw_connect\Configs;
+namespace kalanis\kw_connect\Interfaces;
 
 
 use Traversable;
@@ -8,7 +8,7 @@ use Traversable;
 
 /**
  * Interface IEntries
- * @package kalanis\kw_connect\Configs
+ * @package kalanis\kw_connect\Interfaces
  * Shared interface fo entries
  */
 interface IEntries
@@ -16,7 +16,7 @@ interface IEntries
     /**
      * For which source will data be read
      * @return string
-     * @see \kalanis\kw_input\Entries\IEntry constants
+     * @see \kalanis\kw_input\Interfaces\Entry constants
      */
     public function getSource(): string;
 

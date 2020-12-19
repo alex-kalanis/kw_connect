@@ -1,14 +1,11 @@
 <?php
 
-namespace kalanis\kw_connect\Entries;
-
-
-use kalanis\kw_connect\Configs\IEntries;
+namespace kalanis\kw_connect\Interfaces;
 
 
 /**
  * Interface IPagerEntry
- * @package kalanis\kw_connect\Entries
+ * @package kalanis\kw_connect\Interfaces
  * Config pager entry - it has multiple input
  */
 interface IPagerEntry extends IEntry, IEntries

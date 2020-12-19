@@ -1,8 +1,8 @@
 
-from kw_input.input import IInputs
-from kw_filter.filter import IFilter
-from kw_sorter.sorter import ISorter
-from kw_pager.pager import IPager
+from kw_input.interfaces import IInputs
+from kw_filter.interfaces import IFilter
+from kw_sorter.interfaces import ISorter
+from kw_pager.interfaces import IPager
 
 
 class IEntry:

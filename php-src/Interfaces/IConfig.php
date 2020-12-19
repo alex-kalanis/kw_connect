@@ -1,14 +1,11 @@
 <?php
 
-namespace kalanis\kw_connect\Configs;
-
-
-use kalanis\kw_connect\Entries\IPagerEntry;
+namespace kalanis\kw_connect\Interfaces;
 
 
 /**
  * Interface IConfig
- * @package kalanis\kw_connect\Config
+ * @package kalanis\kw_connect\Interfaces
  * Compact info about what is necessary to fill interfaces
  */
 interface IConfig

@@ -1,9 +1,9 @@
 
 from kw_connect.interfaces import IEntry, IEntries
 from kw_connect.entries import FilterEntry, SorterEntry, PagerEntry
-from kw_filter.filter import IFilterEntry
-from kw_sorter.sorter import ISortEntry
-from kw_input.entries import IEntry as Input
+from kw_filter.interfaces import IFilterEntry
+from kw_sorter.interfaces import ISortEntry
+from kw_input.interfaces import IEntry as Input
 from kw_tests.common_class import CommonTestClass
 
 

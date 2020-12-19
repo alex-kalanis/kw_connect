@@ -5,6 +5,7 @@
   "license": "BSD 3-Clause",
   "type": "project",
   "require": {
+    "alex-kalanis/kw_input": "dev-master",
     "alex-kalanis/filter": "dev-master",
     "alex-kalanis/sorter": "dev-master",
     "alex-kalanis/pager": "dev-master",
