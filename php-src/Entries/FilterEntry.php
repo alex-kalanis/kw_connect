@@ -3,7 +3,7 @@
 namespace kalanis\kw_connect\Entries;
 
 
-use Filter\Interfaces\IFilterEntry;
+use kalanis\kw_filter\Interfaces\IFilterEntry;
 
 
 /**

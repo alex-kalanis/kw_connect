@@ -1,26 +1,27 @@
 <?php
 
 use kalanis\kw_connect\Connect;
+use kalanis\kw_connect\ConnectException;
+use kalanis\kw_filter\Interfaces\IFilter;
+use kalanis\kw_filter\Interfaces\IFilterEntry;
 use kalanis\kw_input\Interfaces\IEntry as InputEntry;
 use kalanis\kw_input\Interfaces\IInputs;
-use Filter\Interfaces\IFilter;
-use Filter\Interfaces\IFilterEntry;
-use Pager\Interfaces\IPager;
-use Sorter\Interfaces\ISorter;
-use Sorter\Interfaces\ISortEntry;
+use kalanis\kw_pager\Interfaces\IPager;
+use kalanis\kw_sorter\Interfaces\ISorter;
+use kalanis\kw_sorter\Interfaces\ISortEntry;
 
 
 class ConnectTest extends CommonTestClass
 {
     /**
-     * @throws \kalanis\kw_connect\ConnectException
+     * @throws ConnectException
      */
     public function testBasic()
     {
         $connect = new Connect(new MockFilter(), new MockSorter(), new MockPager());
-        $this->assertInstanceOf('\Filter\Interfaces\IFilter', $connect->getFilter());
-        $this->assertInstanceOf('\Sorter\Interfaces\ISorter', $connect->getSorter());
-        $this->assertInstanceOf('\Pager\Interfaces\IPager', $connect->getPager());
+        $this->assertInstanceOf('\kalanis\kw_filter\Interfaces\IFilter', $connect->getFilter());
+        $this->assertInstanceOf('\kalanis\kw_sorter\Interfaces\ISorter', $connect->getSorter());
+        $this->assertInstanceOf('\kalanis\kw_pager\Interfaces\IPager', $connect->getPager());
 
         $connect->setInputs((new MockInputs())->setSource());
 
@@ -68,22 +69,24 @@ class ConnectTest extends CommonTestClass
     }
 
     /**
-     * @expectedException \kalanis\kw_connect\ConnectException
+     * @throws ConnectException
      */
     public function testNoConfig()
     {
         $connect = new Connect(new MockFilter(), new MockSorter(), new MockPager());
         $connect->setInputs(new MockInputs());
+        $this->expectException(ConnectException::class);
         $connect->process();
     }
 
     /**
-     * @expectedException \kalanis\kw_connect\ConnectException
+     * @throws ConnectException
      */
     public function testNoInputs()
     {
         $connect = new Connect(new MockFilter(), new MockSorter(), new MockPager());
         $connect->setConfig($this->config1());
+        $this->expectException(ConnectException::class);
         $connect->process();
     }
 }

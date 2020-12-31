@@ -1,11 +1,11 @@
 <?php
 
 
-use Filter\Interfaces\IFilterEntry;
 use kalanis\kw_connect\Configs;
 use kalanis\kw_connect\Interfaces\IEntry;
+use kalanis\kw_filter\Interfaces\IFilterEntry;
 use kalanis\kw_input\Interfaces\IEntry as Input;
-use Sorter\Interfaces\ISortEntry;
+use kalanis\kw_sorter\Interfaces\ISortEntry;
 
 
 class ConfigTest extends CommonTestClass

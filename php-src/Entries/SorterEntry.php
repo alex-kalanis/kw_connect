@@ -3,7 +3,7 @@
 namespace kalanis\kw_connect\Entries;
 
 
-use Sorter\Interfaces\ISortEntry;
+use kalanis\kw_sorter\Interfaces\ISortEntry;
 
 
 /**

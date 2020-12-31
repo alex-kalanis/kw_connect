@@ -1,6 +1,5 @@
 <?php
 
-use Filter\Interfaces\IFilterEntry;
 use kalanis\kw_connect\Configs\AEntries;
 use kalanis\kw_connect\Configs\Config;
 use kalanis\kw_connect\Configs\FilterEntries;
@@ -8,9 +7,10 @@ use kalanis\kw_connect\Configs\SorterEntries;
 use kalanis\kw_connect\Entries\FilterEntry;
 use kalanis\kw_connect\Entries\SorterEntry;
 use kalanis\kw_connect\Entries\PagerEntry;
+use kalanis\kw_filter\Interfaces\IFilterEntry;
 use kalanis\kw_input\Interfaces\IEntry as Input;
 use PHPUnit\Framework\TestCase;
-use Sorter\Interfaces\ISortEntry;
+use kalanis\kw_sorter\Interfaces\ISortEntry;
 
 
 /**

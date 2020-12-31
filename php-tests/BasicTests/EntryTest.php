@@ -1,9 +1,9 @@
 <?php
 
-use Filter\Interfaces\IFilterEntry;
 use kalanis\kw_connect\Entries;
+use kalanis\kw_filter\Interfaces\IFilterEntry;
 use kalanis\kw_input\Interfaces\IEntry;
-use Sorter\Interfaces\ISortEntry;
+use kalanis\kw_sorter\Interfaces\ISortEntry;
 
 
 class EntryTest extends CommonTestClass

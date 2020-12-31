@@ -3,10 +3,10 @@
 namespace kalanis\kw_connect\Interfaces;
 
 
-use Filter\Interfaces\IFilter;
+use kalanis\kw_filter\Interfaces\IFilter;
 use kalanis\kw_input\Interfaces\IInputs;
-use Pager\Interfaces\IPager;
-use Sorter\Interfaces\ISorter;
+use kalanis\kw_pager\Interfaces\IPager;
+use kalanis\kw_sorter\Interfaces\ISorter;
 
 
 /**
