@@ -16,7 +16,7 @@ interface IEntries
     /**
      * For which source will data be read
      * @return string
-     * @see \kalanis\kw_input\Interfaces\Entry constants
+     * @see \kalanis\kw_input\Interfaces\IEntry constants
      */
     public function getSource(): string;
 

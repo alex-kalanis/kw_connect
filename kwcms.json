@@ -3,7 +3,7 @@
   "name": "kw_connect",
   "description": "Connecting inputs into their respective targets",
   "source": "https://github.com/alex-kalanis/kw_connect",
-  "license": "BSD 3-Clause",
+  "license": "BSD-3-Clause",
   "require": {
     "alex-kalanis/kw_input": "dev-master",
     "alex-kalanis/filter": "dev-master",

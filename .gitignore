@@ -16,6 +16,7 @@ __pycache__
 # checks
 phpunit
 phpunit-*
+.phpunit*
 
 php-tests/external/
 kw_filter/
