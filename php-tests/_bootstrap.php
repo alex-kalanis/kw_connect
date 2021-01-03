@@ -4,10 +4,8 @@ define('AUTHOR_NAME', 'kalanis');
 define('PROJECT_NAME', 'kw_connect');
 define('PROJECT_DIR', 'php-src');
 
-var_dump(['root', scandir(realpath(__DIR__ . '/../vendor'))]);
-
 $composter = realpath(__DIR__ . '/../vendor/autoload.php');
-if ($composter && is_file($composter)) {
+if ($composter) {
     $loader = @require_once $composter;
 //    $loader->addPsr4(implode('\\', [AUTHOR_NAME, PROJECT_NAME]), __DIR__);
 }
