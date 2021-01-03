@@ -362,6 +362,11 @@ class MockInputs implements IInputs
         }
         return $result;
     }
+
+    public function intoKeyObjectObject(Traversable $entries): ArrayAccess
+    {
+        return new ArrayIterator($entries);
+    }
 }
 
 
