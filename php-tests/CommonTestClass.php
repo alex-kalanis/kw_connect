@@ -9,8 +9,8 @@ use kalanis\kw_connect\Entries\SorterEntry;
 use kalanis\kw_connect\Entries\PagerEntry;
 use kalanis\kw_filter\Interfaces\IFilterEntry;
 use kalanis\kw_input\Interfaces\IEntry as Input;
-use PHPUnit\Framework\TestCase;
 use kalanis\kw_sorter\Interfaces\ISortEntry;
+use PHPUnit\Framework\TestCase;
 
 
 /**
