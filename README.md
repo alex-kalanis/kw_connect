@@ -1,8 +1,8 @@
 kw_connect
 ================
 
-Contains connection between inputs and selectors for querying storages. Allow you
-use either get and cli or server and env params as same source.
+Contains connection between content lookups like tables and storage engines. Allow you
+use any of them as the same source and one table engine over everything.
 
 This is the mixed package - contains sever-side implementation in Python and PHP.
 
@@ -11,7 +11,7 @@ This is the mixed package - contains sever-side implementation in Python and PHP
 ```
 {
     "require": {
-        "alex-kalanis/kw_connect": "1.0"
+        "alex-kalanis/kw_connect": "2.0"
     }
 }
 ```
@@ -40,6 +40,6 @@ into your "setup.py":
 
 # Python Usage
 
-1.) Connect the "kw_connect\connect" into your app. When it came necessary
+1.) Connect the "kw_connect.connect" into your app. When it came necessary
 you can extends every library to comply your use-case; mainly for describe your
 searched inputs.

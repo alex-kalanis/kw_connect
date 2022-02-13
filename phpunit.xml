@@ -35,13 +35,15 @@
 
     <filter>
         <whitelist>
-            <directory suffix=".php">php-src/</directory>
+            <directory suffix=".php">php-src/core/</directory>
+            <directory suffix=".php">php-src/arrays/</directory>
         </whitelist>
     </filter>
 
     <testsuites>
         <testsuite name="ALL">
-            <directory>php-tests/BasicTests</directory>
+            <directory>php-tests/CoreTests</directory>
+            <directory>php-tests/ArraysTests</directory>
         </testsuite>
     </testsuites>
 </phpunit>
