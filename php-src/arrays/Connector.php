@@ -7,6 +7,7 @@ use kalanis\kw_connect\core\AConnector;
 use kalanis\kw_connect\core\ConnectException;
 use kalanis\kw_connect\core\Interfaces\IConnector;
 use kalanis\kw_connect\core\Interfaces\IFilterFactory;
+use kalanis\kw_connect\core\Interfaces\IFilterSubs;
 use kalanis\kw_connect\core\Interfaces\IFilterType;
 use kalanis\kw_connect\core\Interfaces\IOrder;
 use kalanis\kw_connect\core\Interfaces\IRow;
@@ -43,7 +44,7 @@ class Connector extends AConnector implements IConnector
         $this->primaryKey = $primaryKey;
     }
 
-    public function setFiltering(string $filterType, string $colName, $value): void
+    public function setFiltering(string $colName, string $filterType, $value): void
     {
         $this->filtering[] = [$filterType, $colName, $value];
     }
@@ -94,6 +95,9 @@ class Connector extends AConnector implements IConnector
         $filtered = $this->getFiltered($translated);
         foreach (array_reverse($this->filtering) as list($filterType, $columnName, $value)) {
             $type = $this->getFilterFactory()->getFilter($filterType);
+            if ($type instanceof IFilterSubs) {
+                $type->addFilterFactory($this->getFilterFactory());
+            }
             $type->setDataSource($filtered);
             $type->setFiltering($columnName, $value);
             $filtered = $type->getDataSource();

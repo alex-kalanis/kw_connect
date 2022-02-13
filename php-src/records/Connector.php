@@ -55,7 +55,7 @@ class Connector extends AConnector implements IConnector
         return new Row($data);
     }
 
-    public function setFiltering(string $filterType, string $colName, $value): void
+    public function setFiltering(string $colName, string $filterType, $value): void
     {
         $this->filterByColumn = $colName;
         $this->filterByNamePart = $value;

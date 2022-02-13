@@ -14,12 +14,12 @@ use kalanis\kw_connect\core\ConnectException;
 interface IConnector
 {
     /**
-     * @param string $filterType
      * @param string $colName
+     * @param string $filterType
      * @param string|string[] $value
      * @throws ConnectException
      */
-    public function setFiltering(string $filterType, string $colName, $value): void;
+    public function setFiltering(string $colName, string $filterType, $value): void;
 
     /**
      * @param string $colName

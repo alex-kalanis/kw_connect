@@ -121,17 +121,37 @@ class FiltersTest extends CommonTestClass
     /**
      * @throws ConnectException
      */
-    public function testMultiple()
+    public function testMultiple1()
     {
         $filter = new arrays\Filters\Multiple();
-        $filter->addSubFilter('a', new arrays\Filters\Contains());
-        $filter->addSubFilter('b', new arrays\Filters\Contains());
+        $filter->addFilterFactory(arrays\Filters\Factory::getInstance());
         $filter->setDataSource($this->getDataSource());
 
         $filter->setFiltering('def', [
-            // filter alias => expected value
-            'a' => 'e',
-            'b' => 'a',
+            // filter type => expected value; everything over column defined previously
+            [arrays\Filters\Factory::ACTION_CONTAINS, 'e'],
+            [arrays\Filters\Factory::ACTION_CONTAINS, 'a'],
+        ]);
+        $this->assertEquals(3, count($filter->getDataSource()));
+    }
+
+    /**
+     * @throws ConnectException
+     */
+    public function testMultiple2()
+    {
+        $filter = new arrays\Filters\Multiple();
+        $filter->addFilterFactory(arrays\Filters\Factory::getInstance());
+        $filter->setDataSource($this->getDataSource());
+
+        $filter->setFiltering('def', [
+            // filter type => expected value; everything over column defined previously
+            [
+                arrays\Filters\Factory::ACTION_MULTIPLE, [
+                    [arrays\Filters\Factory::ACTION_CONTAINS, 'a'],
+                ]
+            ],
+            [arrays\Filters\Factory::ACTION_CONTAINS, 'e'],
         ]);
         $this->assertEquals(3, count($filter->getDataSource()));
     }

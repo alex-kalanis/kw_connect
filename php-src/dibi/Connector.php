@@ -8,6 +8,7 @@ use Dibi\Fluent;
 use kalanis\kw_connect\core\AConnector;
 use kalanis\kw_connect\core\Interfaces\IConnector;
 use kalanis\kw_connect\core\Interfaces\IFilterFactory;
+use kalanis\kw_connect\core\Interfaces\IFilterSubs;
 use kalanis\kw_connect\core\Interfaces\IRow;
 
 
@@ -39,9 +40,12 @@ class Connector extends AConnector implements IConnector
         $this->primaryKey = $primaryKey;
     }
 
-    public function setFiltering(string $filterType, string $colName, $value): void
+    public function setFiltering(string $colName, string $filterType, $value): void
     {
         $type = $this->getFilterFactory()->getFilter($filterType);
+        if ($type instanceof IFilterSubs) {
+            $type->addFilterFactory($this->getFilterFactory());
+        }
         $type->setDataSource($this->dibiFluent);
         $type->setFiltering($colName, $value);
     }

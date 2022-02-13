@@ -20,14 +20,9 @@ abstract class AFilterFactory implements IFilterFactory
      */
     protected static $map = [];
 
-    protected static $instance = null;
-
     public static function getInstance(): self
     {
-        if (empty(static::$instance)) {
-            static::$instance = new static();
-        }
-        return static::$instance;
+        return new static();
     }
 
     protected function __construct()

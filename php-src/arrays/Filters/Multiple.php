@@ -3,8 +3,9 @@
 namespace kalanis\kw_connect\arrays\Filters;
 
 
+use kalanis\kw_connect\core\ConnectException;
 use kalanis\kw_connect\core\Interfaces\IFilterSubs;
-use kalanis\kw_connect\core\Interfaces\IFilterType;
+use kalanis\kw_connect\core\TMultiple;
 
 
 /**
@@ -14,25 +15,29 @@ use kalanis\kw_connect\core\Interfaces\IFilterType;
  */
 class Multiple extends AType implements IFilterSubs
 {
-    /** @var IFilterType[] */
-    protected $subFilters = [];
+    use TMultiple;
 
-    public function addSubFilter(string $alias, IFilterType $filter): void
-    {
-        $this->subFilters[$alias] = $filter;
-    }
-
+    /**
+     * @param string $colName
+     * @param mixed $value
+     * @return $this|mixed
+     * @throws ConnectException
+     * must be different - pass data there and back
+     */
     public function setFiltering(string $colName, $value)
     {
-        $data = $this->dataSource;
-        foreach ($this->subFilters as $alias => &$subFilter) {
-            if (isset($value[$alias]) && (IFilterType::EMPTY_FILTER != $value[$alias])) {
-                $subFilter->setDataSource($data);
-                $subFilter->setFiltering($colName, $value[$alias]);
-                $data = $subFilter->getDataSource();
+        $sourceName = $this->getDataSourceName();
+        $data = $this->$sourceName;
+        foreach ($value as list($filterType, $expected)) {
+            $subFilter = $this->filterFactory->getFilter($filterType);
+            if ($subFilter instanceof IFilterSubs) {
+                $subFilter->addFilterFactory($this->filterFactory);
             }
+            $subFilter->setDataSource($data);
+            $subFilter->setFiltering($colName, $expected);
+            $data = $subFilter->getDataSource();
         }
-        $this->dataSource = $data;
+        $this->$sourceName = $data;
         return $this;
     }
 }
