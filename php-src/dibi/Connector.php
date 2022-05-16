@@ -9,6 +9,7 @@ use kalanis\kw_connect\core\AConnector;
 use kalanis\kw_connect\core\Interfaces\IConnector;
 use kalanis\kw_connect\core\Interfaces\IFilterFactory;
 use kalanis\kw_connect\core\Interfaces\IFilterSubs;
+use kalanis\kw_connect\core\Interfaces\IOrder;
 use kalanis\kw_connect\core\Interfaces\IRow;
 
 
@@ -71,7 +72,8 @@ class Connector extends AConnector implements IConnector
     public function fetchData(): void
     {
         foreach (array_reverse($this->sorters) as list($colName, $direction)) {
-            $this->dibiFluent->orderBy($colName, $direction);
+            $dir = IOrder::ORDER_ASC == $direction ? 'ASC' : 'DESC' ;
+            $this->dibiFluent->orderBy($colName, $dir);
         }
         $this->rawData = $this->dibiFluent->fetchAll($this->offset, $this->limit);
         $this->parseData();

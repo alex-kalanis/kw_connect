@@ -7,7 +7,9 @@ use kalanis\kw_connect\core\AConnector;
 use kalanis\kw_connect\core\Interfaces\IConnector;
 use kalanis\kw_connect\core\Interfaces\IFilterFactory;
 use kalanis\kw_connect\core\Interfaces\IFilterSubs;
+use kalanis\kw_connect\core\Interfaces\IOrder;
 use kalanis\kw_connect\core\Interfaces\IRow;
+use kalanis\kw_mapper\Interfaces\IQueryBuilder;
 use kalanis\kw_mapper\MapperException;
 use kalanis\kw_mapper\Records\ARecord;
 use kalanis\kw_mapper\Search\Search as MapperSearch;
@@ -73,7 +75,10 @@ class Connector extends AConnector implements IConnector
 
     public function setSorting(string $colName, string $direction): void
     {
-        $this->dataSource->orderBy($colName, $direction);
+        $this->dataSource->orderBy(
+            $colName,
+            IOrder::ORDER_ASC == $direction ? IQueryBuilder::ORDER_ASC : IQueryBuilder::ORDER_DESC
+        );
     }
 
     public function setPagination(?int $offset, ?int $limit): void

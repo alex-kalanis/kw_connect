@@ -23,3 +23,6 @@ kw_filter/
 kw_input/
 kw_pager/
 kw_sorter/
+
+# discarded files
+*discard*

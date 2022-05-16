@@ -37,6 +37,8 @@
         <whitelist>
             <directory suffix=".php">php-src/core/</directory>
             <directory suffix=".php">php-src/arrays/</directory>
+            <directory suffix=".php">php-src/records/</directory>
+            <directory suffix=".php">php-src/search/</directory>
         </whitelist>
     </filter>
 
@@ -44,6 +46,7 @@
         <testsuite name="ALL">
             <directory>php-tests/CoreTests</directory>
             <directory>php-tests/ArraysTests</directory>
+            <directory>php-tests/KwTests</directory>
         </testsuite>
     </testsuites>
 </phpunit>

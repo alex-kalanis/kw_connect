@@ -9,6 +9,7 @@ use kalanis\kw_connect\core\AConnector;
 use kalanis\kw_connect\core\Interfaces\IConnector;
 use kalanis\kw_connect\core\Interfaces\IFilterFactory;
 use kalanis\kw_connect\core\Interfaces\IFilterSubs;
+use kalanis\kw_connect\core\Interfaces\IOrder;
 use kalanis\kw_connect\core\Interfaces\IRow;
 
 
@@ -68,7 +69,8 @@ class Connector extends AConnector implements IConnector
     public function fetchData(): void
     {
         foreach ($this->sorters as list($colName, $direction)) {
-            $this->queryBuilder->orderBy(strval($colName), strval($direction));
+            $dir = IOrder::ORDER_ASC == $direction ? 'ASC' : 'DESC' ;
+            $this->queryBuilder->orderBy(strval($colName), strval($dir));
         }
         if (!is_null($this->offset)) {
             $this->queryBuilder->setFirstResult($this->offset);
