@@ -11,7 +11,7 @@ This is the mixed package - contains sever-side implementation in Python and PHP
 ```
 {
     "require": {
-        "alex-kalanis/kw_connect": "2.0"
+        "alex-kalanis/kw_connect": "3.0"
     }
 }
 ```
