@@ -81,7 +81,7 @@ class Connector extends AConnector implements IConnector
      * @param string $direction
      * @throws MapperException
      */
-    public function setSorting(string $colName, string $direction): void
+    public function setOrdering(string $colName, string $direction): void
     {
         $this->dataSource->orderBy(
             $colName,

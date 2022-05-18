@@ -20,10 +20,10 @@ class ConnectTest extends AKwTests
     {
         $lib = new records\Connector($this->rows());
         $lib->setFiltering('target', '', 'any'); // filter type not need for this one
-        $lib->setSorting('name', IOrder::ORDER_DESC);
+        $lib->setOrdering('name', IOrder::ORDER_DESC);
         $lib->setPagination(2, 2);
         $this->assertEquals(3, $lib->getTotalCount());
-        $lib->setSorting('counter', IOrder::ORDER_ASC);
+        $lib->setOrdering('counter', IOrder::ORDER_ASC);
         $lib->fetchData();
         $this->assertNotEmpty($lib->getFilterFactory());
     }
@@ -43,7 +43,7 @@ class ConnectTest extends AKwTests
             ],
         ]);
         $this->assertEquals(6, $lib->getTotalCount());
-        $lib->setSorting('name', IOrder::ORDER_ASC);
+        $lib->setOrdering('name', IOrder::ORDER_ASC);
         $lib->setPagination(1, 4);
         $lib->fetchData();
         $this->assertEquals(4, count(iterator_to_array($lib)));

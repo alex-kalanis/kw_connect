@@ -51,7 +51,7 @@ class Connector extends AConnector implements IConnector
         $type->setFiltering($colName, $value);
     }
 
-    public function setSorting(string $colName, string $direction): void
+    public function setOrdering(string $colName, string $direction): void
     {
         $this->sorters[] = [$colName, $direction];
     }

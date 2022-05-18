@@ -25,7 +25,7 @@ class Connector extends AConnector implements IConnector
     /** @var string */
     protected $primaryKey;
     /** @var array */
-    protected $sorters;
+    protected $ordering;
     /** @var int */
     protected $limit;
     /** @var int */
@@ -49,9 +49,9 @@ class Connector extends AConnector implements IConnector
         $type->setFiltering($colName, $value);
     }
 
-    public function setSorting(string $colName, string $direction): void
+    public function setOrdering(string $colName, string $direction): void
     {
-        $this->sorters[] = [$colName, $direction];
+        $this->ordering[] = [$colName, $direction];
     }
 
     public function setPagination(?int $offset, ?int $limit): void
@@ -68,7 +68,7 @@ class Connector extends AConnector implements IConnector
 
     public function fetchData(): void
     {
-        foreach ($this->sorters as list($colName, $direction)) {
+        foreach ($this->ordering as list($colName, $direction)) {
             $dir = IOrder::ORDER_ASC == $direction ? 'ASC' : 'DESC' ;
             $this->queryBuilder->orderBy(strval($colName), strval($dir));
         }

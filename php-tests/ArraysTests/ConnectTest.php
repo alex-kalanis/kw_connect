@@ -18,7 +18,7 @@ class ConnectTest extends CommonTestClass
     {
         $lib = new arrays\Connector($this->sourceRows()); // no PK
         $lib->setFiltering('pqr', arrays\Filters\Factory::ACTION_EXACT, true);
-        $lib->setSorting('jkl', IOrder::ORDER_DESC);
+        $lib->setOrdering('jkl', IOrder::ORDER_DESC);
         $lib->setPagination(2, 2);
         $lib->fetchData();
         $this->assertEquals(4, $lib->getTotalCount());
@@ -37,7 +37,7 @@ class ConnectTest extends CommonTestClass
                 ]
             ],
         ]);
-        $lib->setSorting('jkl', IOrder::ORDER_ASC);
+        $lib->setOrdering('jkl', IOrder::ORDER_ASC);
         $this->assertEquals(5, $lib->getTotalCount());
     }
 
