@@ -4,9 +4,7 @@ namespace KwTests;
 
 
 use kalanis\kw_connect\search;
-use kalanis\kw_connect\core\AConnector;
 use kalanis\kw_connect\core\ConnectException;
-use kalanis\kw_connect\core\Interfaces\IRow;
 use kalanis\kw_mapper\MapperException;
 
 

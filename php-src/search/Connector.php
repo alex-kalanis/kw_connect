@@ -36,6 +36,9 @@ class Connector extends AConnector implements IConnector
         $this->dataSource = $search;
     }
 
+    /**
+     * @throws MapperException
+     */
     protected function parseData(): void
     {
         foreach ($this->rawData as $mapper) {
@@ -73,6 +76,11 @@ class Connector extends AConnector implements IConnector
         $type->setFiltering($colName, $value);
     }
 
+    /**
+     * @param string $colName
+     * @param string $direction
+     * @throws MapperException
+     */
     public function setSorting(string $colName, string $direction): void
     {
         $this->dataSource->orderBy(
@@ -87,11 +95,18 @@ class Connector extends AConnector implements IConnector
         $this->dataSource->limit($limit);
     }
 
+    /**
+     * @return int
+     * @throws MapperException
+     */
     public function getTotalCount(): int
     {
         return $this->dataSource->getCount();
     }
 
+    /**
+     * @throws MapperException
+     */
     public function fetchData(): void
     {
         $this->rawData = $this->dataSource->getResults();
