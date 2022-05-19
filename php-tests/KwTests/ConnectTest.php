@@ -58,6 +58,38 @@ class ConnectTest extends AKwTests
         $this->assertEquals(0, $lib->getTotalCount());
     }
 
+    /**
+     * @throws ConnectException
+     */
+    public function testConnectorData1()
+    {
+        $lib = new records\Connector($this->rows());
+        $lib->setOrdering('id', IOrder::ORDER_ASC);
+        $lib->fetchData();
+        $this->assertEquals(5, $lib->getTotalCount());
+        $content = iterator_to_array($lib);
+        $this->assertEquals('emil', $content[0]->getValue('name'));
+        $this->assertEquals('josh', $content[1]->getValue('name'));
+        $this->assertEquals('ewan', $content[2]->getValue('name'));
+        $this->assertEquals('kami', $content[3]->getValue('name'));
+    }
+
+    /**
+     * @throws ConnectException
+     */
+    public function testConnectorData2()
+    {
+        $lib = new records\Connector($this->rows());
+        $lib->setOrdering('id', IOrder::ORDER_DESC);
+        $lib->fetchData();
+        $this->assertEquals(5, $lib->getTotalCount());
+        $content = iterator_to_array($lib);
+        $this->assertEquals('chuck', $content[0]->getValue('name'));
+        $this->assertEquals('kami', $content[1]->getValue('name'));
+        $this->assertEquals('ewan', $content[2]->getValue('name'));
+        $this->assertEquals('josh', $content[3]->getValue('name'));
+    }
+
     protected function rows(): array
     {
         return [
