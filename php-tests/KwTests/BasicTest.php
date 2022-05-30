@@ -9,6 +9,12 @@ use kalanis\kw_connect\search;
 use kalanis\kw_mapper\Records\ARecord;
 
 
+/**
+ * Class BasicTest
+ * @package KwTests
+ * @requires extension PDO
+ * @requires extension pdo_sqlite
+ */
 class BasicTest extends AKwTests
 {
     /**

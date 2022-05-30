@@ -8,6 +8,12 @@ use kalanis\kw_connect\core\ConnectException;
 use kalanis\kw_mapper\MapperException;
 
 
+/**
+ * Class FiltersTest
+ * @package KwTests
+ * @requires extension PDO
+ * @requires extension pdo_sqlite
+ */
 class FiltersTest extends AKwTests
 {
     /**

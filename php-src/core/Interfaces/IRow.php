@@ -3,6 +3,9 @@
 namespace kalanis\kw_connect\core\Interfaces;
 
 
+use kalanis\kw_connect\core\ConnectException;
+
+
 /**
  * Interface IRow
  * @package kalanis\kw_connect\core\Interfaces
@@ -13,6 +16,7 @@ interface IRow
     /**
      * @param string|int $property
      * @return mixed
+     * @throws ConnectException
      */
     public function getValue($property);
 

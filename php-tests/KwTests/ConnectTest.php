@@ -11,6 +11,12 @@ use kalanis\kw_connect\search;
 use kalanis\kw_mapper\MapperException;
 
 
+/**
+ * Class ConnectTest
+ * @package KwTests
+ * @requires extension PDO
+ * @requires extension pdo_sqlite
+ */
 class ConnectTest extends AKwTests
 {
     /**
