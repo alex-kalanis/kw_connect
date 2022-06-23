@@ -119,7 +119,7 @@ class XTestRecord extends ASimpleRecord
 
     public function getName(): string
     {
-        return (string)$this->offsetGet('name');
+        return (string) $this->offsetGet('name');
     }
 }
 

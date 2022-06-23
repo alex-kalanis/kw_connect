@@ -53,8 +53,8 @@ class Connector extends AConnector implements IConnector
 
     /**
      * @param ARecord $record
-     * @return string
      * @throws MapperException
+     * @return string
      */
     protected function getPrimaryKey(ARecord $record): string
     {
@@ -96,8 +96,8 @@ class Connector extends AConnector implements IConnector
     }
 
     /**
-     * @return int
      * @throws MapperException
+     * @return int
      */
     public function getTotalCount(): int
     {
