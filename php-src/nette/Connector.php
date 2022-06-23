@@ -67,12 +67,10 @@ class Connector extends AConnector implements IConnector
 
     public function fetchData(): void
     {
-        $orders = [];
         foreach ($this->ordering as list($colName, $direction)) {
             $dir = IOrder::ORDER_ASC == $direction ? 'ASC' : 'DESC' ;
-            $orders[] = strval($colName) . ' ' . $dir;
+            $this->netteTable->order(strval($colName), $dir);
         }
-        $this->netteTable->order($orders);
         $this->netteTable->limit($this->limit, $this->offset);
         $this->parseData();
     }
