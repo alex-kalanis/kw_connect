@@ -3,8 +3,8 @@
 namespace kalanis\kw_connect\dibi;
 
 
-use Dibi;
 use Dibi\Fluent;
+use Dibi\Row as DRow;
 use kalanis\kw_connect\core\AConnector;
 use kalanis\kw_connect\core\Interfaces\IConnector;
 use kalanis\kw_connect\core\Interfaces\IFilterFactory;
@@ -24,13 +24,13 @@ class Connector extends AConnector implements IConnector
     protected $dibiFluent;
     /** @var string */
     protected $primaryKey;
-    /** @var array */
+    /** @var array<int, array<string>> */
     protected $sorters;
-    /** @var int */
+    /** @var int|null */
     protected $limit;
-    /** @var int */
+    /** @var int|null */
     protected $offset;
-    /** @var Dibi\Row[] */
+    /** @var DRow[] */
     protected $rawData = [];
     /** @var bool */
     protected $dataFetched = false;
@@ -86,14 +86,14 @@ class Connector extends AConnector implements IConnector
         }
     }
 
-    protected function getTranslated(Dibi\Row $data): IRow
+    protected function getTranslated(DRow $data): IRow
     {
         return new Row($data);
     }
 
-    protected function getPrimaryKey(Dibi\Row $record): string
+    protected function getPrimaryKey(DRow $record): string
     {
-        return $record->offsetGet($this->primaryKey);
+        return strval($record->offsetGet($this->primaryKey));
     }
 
     public function getFilterFactory(): IFilterFactory

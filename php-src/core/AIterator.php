@@ -12,7 +12,7 @@ abstract class AIterator implements \ArrayAccess, \IteratorAggregate, \Countable
 {
     /**
      * Iterable variable
-     * @var array
+     * @var array<string|int, string|int|float|bool|null>
      */
     protected $iterable = [];
 
@@ -22,7 +22,7 @@ abstract class AIterator implements \ArrayAccess, \IteratorAggregate, \Countable
      */
     abstract protected function getIterableName(): string;
 
-    public function getIterator()
+    public function getIterator(): \Traversable
     {
         return new \ArrayIterator($this->{$this->getIterableName()});
     }

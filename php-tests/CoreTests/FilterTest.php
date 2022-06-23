@@ -28,11 +28,21 @@ class FilterTest extends CommonTestClass
     /**
      * @throws ConnectException
      */
-    public function testFilterFail()
+    public function testFilterUnknown()
     {
         $data = Factory::getInstance();
         $this->expectException(ConnectException::class);
         $data->getFilter(Factory::ACTION_CONTAINS);
+    }
+
+    /**
+     * @throws ConnectException
+     */
+    public function testFilterFail()
+    {
+        $data = Factory::getInstance();
+        $this->expectException(ConnectException::class);
+        $data->getFilter('failing');
     }
 }
 
@@ -42,5 +52,12 @@ class Factory extends AFilterFactory
     protected static $map = [
         self::ACTION_EXACT => '\kalanis\kw_connect\arrays\Filters\Exact',
         self::ACTION_MULTIPLE => '\kalanis\kw_connect\arrays\Filters\Multiple',
+        'failing' => '\CoreTests\FailingFilter',
     ];
+}
+
+
+class FailingFilter
+{
+    // not instance of IFilterType
 }

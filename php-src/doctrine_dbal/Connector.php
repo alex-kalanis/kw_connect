@@ -24,11 +24,11 @@ class Connector extends AConnector implements IConnector
     protected $queryBuilder;
     /** @var string */
     protected $primaryKey;
-    /** @var array */
+    /** @var array<int, array<string>> */
     protected $ordering;
-    /** @var int */
+    /** @var int|null */
     protected $limit;
-    /** @var int */
+    /** @var int|null */
     protected $offset;
     /** @var bool */
     protected $dataFetched = false;
@@ -94,14 +94,22 @@ class Connector extends AConnector implements IConnector
         }
     }
 
+    /**
+     * @param array<int|string, bool|float|int|string|null> $data
+     * @return IRow
+     */
     protected function getTranslated($data): IRow
     {
         return new Row($data);
     }
 
+    /**
+     * @param array<mixed> $data
+     * @return string
+     */
     protected function getPrimaryKey($data): string
     {
-        return $data[$this->primaryKey];
+        return strval($data[$this->primaryKey]);
     }
 
     public function getFilterFactory(): IFilterFactory

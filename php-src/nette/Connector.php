@@ -24,11 +24,11 @@ class Connector extends AConnector implements IConnector
     protected $netteTable;
     /** @var string */
     protected $primaryKey;
-    /** @var array */
+    /** @var array<int, array<string>> */
     protected $ordering;
-    /** @var int */
+    /** @var int|null */
     protected $limit;
-    /** @var int */
+    /** @var int|null */
     protected $offset;
     /** @var bool */
     protected $dataFetched = false;
@@ -84,14 +84,22 @@ class Connector extends AConnector implements IConnector
         }
     }
 
+    /**
+     * @param NetteRow<string|int, string|int|float|bool|null> $data
+     * @return IRow
+     */
     protected function getTranslated(NetteRow $data): IRow
     {
         return new Row($data);
     }
 
+    /**
+     * @param NetteRow<string|int, string|int|float|bool|null> $record
+     * @return string
+     */
     protected function getPrimaryKey(NetteRow $record): string
     {
-        return $record->offsetGet($this->primaryKey);
+        return strval($record->offsetGet($this->primaryKey));
     }
 
     public function getFilterFactory(): IFilterFactory
