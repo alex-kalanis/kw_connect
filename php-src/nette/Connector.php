@@ -4,9 +4,9 @@ namespace kalanis\kw_connect\nette;
 
 
 use kalanis\kw_connect\core\AConnector;
-use kalanis\kw_connect\core\Interfaces\IConnector;
 use kalanis\kw_connect\core\Interfaces\IFilterFactory;
 use kalanis\kw_connect\core\Interfaces\IFilterSubs;
+use kalanis\kw_connect\core\Interfaces\IIterableConnector;
 use kalanis\kw_connect\core\Interfaces\IOrder;
 use kalanis\kw_connect\core\Interfaces\IRow;
 use Nette\Database\IRow as NetteRow;
@@ -18,7 +18,7 @@ use Nette\Database\Table\Selection;
  * @package kalanis\kw_connect\nette
  * Data source is Nette\Database
  */
-class Connector extends AConnector implements IConnector
+class Connector extends AConnector implements IIterableConnector
 {
     /** @var Selection */
     protected $netteTable;

@@ -6,9 +6,9 @@ namespace kalanis\kw_connect\doctrine_dbal;
 use Doctrine\DBAL\Query\QueryBuilder;
 use kalanis\kw_connect\arrays\Row;
 use kalanis\kw_connect\core\AConnector;
-use kalanis\kw_connect\core\Interfaces\IConnector;
 use kalanis\kw_connect\core\Interfaces\IFilterFactory;
 use kalanis\kw_connect\core\Interfaces\IFilterSubs;
+use kalanis\kw_connect\core\Interfaces\IIterableConnector;
 use kalanis\kw_connect\core\Interfaces\IOrder;
 use kalanis\kw_connect\core\Interfaces\IRow;
 
@@ -18,7 +18,7 @@ use kalanis\kw_connect\core\Interfaces\IRow;
  * @package kalanis\kw_connect\doctrine_dbal
  * Data source is Doctrine DBAL
  */
-class Connector extends AConnector implements IConnector
+class Connector extends AConnector implements IIterableConnector
 {
     /** @var QueryBuilder */
     protected $queryBuilder;

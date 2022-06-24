@@ -6,8 +6,8 @@ namespace kalanis\kw_connect\records;
 use kalanis\kw_connect\arrays\Filters;
 use kalanis\kw_connect\core\AConnector;
 use kalanis\kw_connect\core\ConnectException;
-use kalanis\kw_connect\core\Interfaces\IConnector;
 use kalanis\kw_connect\core\Interfaces\IFilterFactory;
+use kalanis\kw_connect\core\Interfaces\IIterableConnector;
 use kalanis\kw_connect\core\Interfaces\IOrder;
 use kalanis\kw_connect\core\Interfaces\IRow;
 use kalanis\kw_mapper\Records\ARecord;
@@ -18,7 +18,7 @@ use kalanis\kw_mapper\Records\ARecord;
  * @package kalanis\kw_connect\records
  * Data source is kw_mapper/Record
  */
-class Connector extends AConnector implements IConnector
+class Connector extends AConnector implements IIterableConnector
 {
     /** @var ARecord[] */
     protected $dataSource;

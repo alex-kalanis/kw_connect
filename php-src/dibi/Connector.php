@@ -6,9 +6,9 @@ namespace kalanis\kw_connect\dibi;
 use Dibi\Fluent;
 use Dibi\Row as DRow;
 use kalanis\kw_connect\core\AConnector;
-use kalanis\kw_connect\core\Interfaces\IConnector;
 use kalanis\kw_connect\core\Interfaces\IFilterFactory;
 use kalanis\kw_connect\core\Interfaces\IFilterSubs;
+use kalanis\kw_connect\core\Interfaces\IIterableConnector;
 use kalanis\kw_connect\core\Interfaces\IOrder;
 use kalanis\kw_connect\core\Interfaces\IRow;
 
@@ -18,7 +18,7 @@ use kalanis\kw_connect\core\Interfaces\IRow;
  * @package kalanis\kw_connect\dibi
  * Data source is Dibi\Fluent
  */
-class Connector extends AConnector implements IConnector
+class Connector extends AConnector implements IIterableConnector
 {
     /** @var Fluent */
     protected $dibiFluent;
