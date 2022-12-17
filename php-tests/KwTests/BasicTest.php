@@ -4,6 +4,7 @@ namespace KwTests;
 
 
 use kalanis\kw_connect\core\ConnectException;
+use kalanis\kw_connect\core\Interfaces;
 use kalanis\kw_connect\records;
 use kalanis\kw_connect\search;
 use kalanis\kw_mapper\Records\ARecord;
@@ -30,7 +31,7 @@ class BasicTest extends AKwTests
     public function testRowRecord(ARecord $data, $unknownKey, $existsKey, $expect, $passFunc, $useFunc)
     {
         $data = new records\Row($data);
-        $this->assertInstanceOf('\kalanis\kw_connect\core\Interfaces\IRow', $data);
+        $this->assertInstanceOf(Interfaces\IRow::class, $data);
 
         $this->assertFalse($data->__isset($unknownKey));
         $this->assertFalse(isset($data->$unknownKey));
@@ -61,7 +62,7 @@ class BasicTest extends AKwTests
     public function testRowSearch(ARecord $data, $unknownKey, $existsKey, $expect, $passFunc, $useFunc)
     {
         $data = new search\Row($data);
-        $this->assertInstanceOf('\kalanis\kw_connect\core\Interfaces\IRow', $data);
+        $this->assertInstanceOf(Interfaces\IRow::class, $data);
 
         $this->assertFalse($data->__isset($unknownKey));
         $this->assertFalse(isset($data->$unknownKey));

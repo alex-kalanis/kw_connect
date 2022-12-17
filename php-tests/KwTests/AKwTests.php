@@ -114,7 +114,7 @@ class XTestRecord extends ASimpleRecord
         $this->addEntry('counter', IEntryType::TYPE_INTEGER, 9999);
         $this->addEntry('flight', IEntryType::TYPE_INTEGER, 2);
         $this->addEntry('enabled', IEntryType::TYPE_INTEGER, 2);
-        $this->setMapper('\KwTests\XTestMapper');
+        $this->setMapper(XTestMapper::class);
     }
 
     public function getName(): string

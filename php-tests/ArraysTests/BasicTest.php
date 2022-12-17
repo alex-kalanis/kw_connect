@@ -6,6 +6,7 @@ namespace ArraysTests;
 use CommonTestClass;
 use kalanis\kw_connect\arrays;
 use kalanis\kw_connect\core\ConnectException;
+use kalanis\kw_connect\core\Interfaces;
 
 
 class BasicTest extends CommonTestClass
@@ -22,7 +23,7 @@ class BasicTest extends CommonTestClass
     public function testRow(array $data, $unknown, $exists, $expect, $count)
     {
         $data = new arrays\Row($data);
-        $this->assertInstanceOf('\kalanis\kw_connect\core\Interfaces\IRow', $data);
+        $this->assertInstanceOf(Interfaces\IRow::class, $data);
 
         $this->assertFalse($data->__isset($unknown));
         $this->assertFalse(isset($data->$unknown));
@@ -45,8 +46,8 @@ class BasicTest extends CommonTestClass
     {
         $xData = [] + $data;
         $filter = new arrays\FilteringArrays($xData);
-        $this->assertInstanceOf('\ArrayAccess', $filter);
-        $this->assertInstanceOf('\Countable', $filter);
+        $this->assertInstanceOf(\ArrayAccess::class, $filter);
+        $this->assertInstanceOf(\Countable::class, $filter);
         $this->assertEquals($data, $filter->getArray());
 
         $this->assertFalse($filter->offsetExists($unknown));

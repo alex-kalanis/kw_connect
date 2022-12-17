@@ -4,8 +4,10 @@ namespace CoreTests;
 
 
 use CommonTestClass;
+use kalanis\kw_connect\arrays\Filters;
 use kalanis\kw_connect\core\AFilterFactory;
 use kalanis\kw_connect\core\ConnectException;
+use kalanis\kw_connect\core\Interfaces;
 
 
 class FilterTest extends CommonTestClass
@@ -22,7 +24,7 @@ class FilterTest extends CommonTestClass
     public function testFilter()
     {
         $data = Factory::getInstance();
-        $this->assertInstanceOf('\kalanis\kw_connect\core\Interfaces\IFilterType', $data->getFilter(Factory::ACTION_EXACT));
+        $this->assertInstanceOf(Interfaces\IFilterType::class, $data->getFilter(Factory::ACTION_EXACT));
     }
 
     /**
@@ -50,9 +52,9 @@ class FilterTest extends CommonTestClass
 class Factory extends AFilterFactory
 {
     protected static $map = [
-        self::ACTION_EXACT => '\kalanis\kw_connect\arrays\Filters\Exact',
-        self::ACTION_MULTIPLE => '\kalanis\kw_connect\arrays\Filters\Multiple',
-        'failing' => '\CoreTests\FailingFilter',
+        self::ACTION_EXACT => Filters\Exact::class,
+        self::ACTION_MULTIPLE => Filters\Multiple::class,
+        'failing' => FailingFilter::class,
     ];
 }
 

@@ -14,9 +14,9 @@ class ConnectorTest extends CommonTestClass
     public function testConnector()
     {
         $data = new Connect();
-        $this->assertInstanceOf('\ArrayAccess', $data);
-        $this->assertInstanceOf('\IteratorAggregate', $data);
-        $this->assertInstanceOf('\Countable', $data);
+        $this->assertInstanceOf(\ArrayAccess::class, $data);
+        $this->assertInstanceOf(\IteratorAggregate::class, $data);
+        $this->assertInstanceOf(\Countable::class, $data);
 
         $this->assertEmpty($data->count());
 

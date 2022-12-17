@@ -12,9 +12,9 @@ class IteratorTest extends CommonTestClass
     public function testIterator()
     {
         $data = new Iter();
-        $this->assertInstanceOf('\ArrayAccess', $data);
-        $this->assertInstanceOf('\IteratorAggregate', $data);
-        $this->assertInstanceOf('\Countable', $data);
+        $this->assertInstanceOf(\ArrayAccess::class, $data);
+        $this->assertInstanceOf(\IteratorAggregate::class, $data);
+        $this->assertInstanceOf(\Countable::class, $data);
 
         $this->assertEmpty($data->count());
 
