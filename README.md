@@ -17,7 +17,7 @@ use any of them as the same source and one table engine over everything.
 ```
 {
     "require": {
-        "alex-kalanis/kw_connect": "3.1"
+        "alex-kalanis/kw_connect": "3.2"
     }
 }
 ```
@@ -30,6 +30,7 @@ familiar with composer)
 
 1.) Use your autoloader (if not already done via Composer autoloader)
 
-2.) Connect the "kalanis\kw_connect" into your app. When it came necessary
-you can extends every library to comply your use-case; mainly for describe your
-searched inputs.
+2.) Connect the "kalanis\kw_connect\\*" into your app. Use the correct one depending
+on your connection to datasource (like defined by your framework or environment).
+When it come be necessary you can define your own. You can extends every library
+to comply your use-case; mainly for describe your searched inputs.
