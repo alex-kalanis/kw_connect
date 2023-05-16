@@ -9,7 +9,7 @@
   "license": "BSD-3-Clause",
   "type": "library",
   "require": {
-    "php": ">=7.3.0"
+    "php": ">=7.3"
   },
   "require-dev": {
     "alex-kalanis/kw_mapper": ">=0.7",
@@ -19,7 +19,7 @@
     "phpstan/phpstan": "^1.0",
     "phpstan/phpstan-phpunit": "^1.0",
     "friendsofphp/php-cs-fixer": "^3.0",
-    "phpunit/phpunit": ">=7.2"
+    "phpunit/phpunit": ">=7.2 <=9"
   },
   "autoload": {
     "psr-4": {
