@@ -46,6 +46,16 @@ class FilterTest extends CommonTestClass
         $this->expectException(ConnectException::class);
         $data->getFilter('failing');
     }
+
+    /**
+     * @throws ConnectException
+     */
+    public function testShittySettingClass(): void
+    {
+        $factory = Factory::getInstance();
+        $this->expectException(ConnectException::class);
+        $factory->getFilter('not_class');
+    }
 }
 
 
@@ -55,6 +65,7 @@ class Factory extends AFilterFactory
         self::ACTION_EXACT => Filters\Exact::class,
         self::ACTION_MULTIPLE => Filters\Multiple::class,
         'failing' => FailingFilter::class,
+        'not_class' => 'this_is_not_a_class',
     ];
 }
 
