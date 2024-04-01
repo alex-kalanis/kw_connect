@@ -18,5 +18,6 @@ return $config
     ->ignoreErrorsOnPackageAndPath('doctrine/dbal', __DIR__ . '/php-src/doctrine_dbal', [ErrorType::DEV_DEPENDENCY_IN_PROD])
     ->ignoreErrorsOnPackageAndPath('nette/database', __DIR__ . '/php-src/nette', [ErrorType::DEV_DEPENDENCY_IN_PROD])
     ->ignoreErrorsOnPackageAndPath('illuminate/database', __DIR__ . '/php-src/eloquent', [ErrorType::DEV_DEPENDENCY_IN_PROD])
-    ->ignoreErrorsOnPackageAndPath('yiisoft/db', __DIR__ . '/php-src/yii3', [ErrorType::DEV_DEPENDENCY_IN_PROD])
+//    ->ignoreErrorsOnPackageAndPath('yiisoft/db', __DIR__ . '/php-src/yii3', [ErrorType::DEV_DEPENDENCY_IN_PROD])
+    ->addPathToExclude(__DIR__ . '/php-src/yii3')
 ;

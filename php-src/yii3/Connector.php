@@ -61,7 +61,7 @@ class Connector extends AConnector implements IIterableConnector
     {
         // count needs only filtered content
         $dataSource = clone $this->yiiFluent;
-        return intval($dataSource->count());
+        return intval($dataSource->count($this->primaryKey));
     }
 
     public function fetchData(): void
@@ -76,7 +76,7 @@ class Connector extends AConnector implements IIterableConnector
         if (!is_null($this->limit)) {
             $this->yiiFluent->limit($this->limit);
         }
-        $this->rawData = $this->yiiFluent->all();
+        $this->rawData = $this->yiiFluent->select('*')->all();
         $this->parseData();
     }
 
