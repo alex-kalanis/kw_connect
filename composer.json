@@ -12,7 +12,7 @@
     "php": ">=7.4"
   },
   "require-dev": {
-    "alex-kalanis/kw_mapper": ">=4.0 <5",
+    "alex-kalanis/kw_mapper": ">=3.0 <4",
     "dibi/dibi": "~4.2",
     "doctrine/dbal": "~3.8",
     "nette/database": "~3.1",
