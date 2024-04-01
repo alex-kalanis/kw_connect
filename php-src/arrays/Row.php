@@ -13,7 +13,7 @@ use kalanis\kw_connect\core\Interfaces\IRow;
 class Row implements IRow
 {
     /** @var array<int|string, int|string|float|bool|null> */
-    protected $array;
+    protected array $array;
 
     /**
      * @param array<int|string, int|string|float|bool|null> $array

@@ -23,19 +23,16 @@ class Connector extends AConnector implements IIterableConnector
     /** @var string|int|null */
     protected $primaryKey = null;
     /** @var array<int|string, array<int|string, string|int|float|bool|null>> */
-    protected $dataSource = [];
+    protected array $dataSource = [];
     /** @var array<int, array<string>> */
-    protected $ordering = [];
+    protected array $ordering = [];
     /** @var array<string|int|bool|Row> */
-    protected $filteredData = [];
-    /** @var string */
-    protected $sortDirection = IOrder::ORDER_ASC;
+    protected array $filteredData = [];
+    protected string $sortDirection = IOrder::ORDER_ASC;
     /** @var array<string|int> */
-    protected $filtering = [];
-    /** @var int|null */
-    protected $offset = null;
-    /** @var int|null */
-    protected $limit = null;
+    protected array $filtering = [];
+    protected ?int $offset = null;
+    protected ?int $limit = null;
 
     /**
      * @param array<int|string, array<int|string, string|int|float|bool|null>> $source

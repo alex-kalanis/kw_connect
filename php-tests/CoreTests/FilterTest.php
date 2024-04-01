@@ -61,7 +61,7 @@ class FilterTest extends CommonTestClass
 
 class Factory extends AFilterFactory
 {
-    protected static $map = [
+    protected static array $map = [
         self::ACTION_EXACT => Filters\Exact::class,
         self::ACTION_MULTIPLE => Filters\Multiple::class,
         'failing' => FailingFilter::class,

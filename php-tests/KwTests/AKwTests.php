@@ -19,9 +19,8 @@ use PDO;
 
 abstract class AKwTests extends CommonTestClass
 {
-    /** @var null|SQLite */
-    protected $database = null;
-    protected $filled = false;
+    protected ?SQLite $database = null;
+    protected bool $filled = false;
 
     protected function loadedRec($id): ARecord
     {

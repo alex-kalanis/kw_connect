@@ -17,7 +17,7 @@ class FilteringArrays implements ArrayAccess, Countable
     /**
      * @var array<string|int, string|int|float|bool|null|Row>
      */
-    protected $array;
+    protected array $array;
 
     /**
      * @param array<string|int, string|int|float|bool|null|Row> $array
