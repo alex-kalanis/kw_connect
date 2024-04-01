@@ -2,20 +2,20 @@ parameters:
 	level: 8
 	paths:
 		- 'php-src'
-	scanFiles:
-		- 'php-tests/CommonTestClass.php'
+#	scanFiles:
+#		- 'php-tests/CommonTestClass.php'
 #	scanDirectories:
 #		- 'php-tests/discard'
 	excludePaths:
 		- 'php-tests/_autoload.php'
 		- 'php-tests/_bootstrap.php'
-		- 'php-tests/CommonTestClass.php'
+#		- 'php-tests/CommonTestClass.php'
 	bootstrapFiles:
 		- 'php-tests/_bootstrap.php'
 	checkGenericClassInNonGenericObjectType: false
 	ignoreErrors:
 		- '#function call_user_func expects callable#'
-		- '#array_filter expects callable\(bool\|float\|int\|kalanis\\kw_connect\\arrays\\Row\|string\|null\): mixed\,#'
+		- '#\$callback of function array_filter expects callable\(bool\|float\|int\|#'
 		-
 			message: '#expects int\|string, int\|string\|null given.#'
 			path: 'php-src/arrays/Connector.php'
