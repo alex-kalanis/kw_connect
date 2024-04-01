@@ -14,6 +14,7 @@ parameters:
 		- 'php-tests/_bootstrap.php'
 	checkGenericClassInNonGenericObjectType: false
 	ignoreErrors:
+		# usual WTFs with callbacks
 		- '#function call_user_func expects callable#'
 		- '#\$callback of function array_filter expects#'
 		-

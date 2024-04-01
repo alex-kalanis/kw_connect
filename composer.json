@@ -16,6 +16,7 @@
     "dibi/dibi": "~4.2",
     "doctrine/dbal": "~3.8",
     "nette/database": "~3.1",
+    "illuminate/database": "^8.0",
     "shipmonk/composer-dependency-analyser": "^1.4",
     "phpstan/phpstan": "^1.0",
     "phpstan/phpstan-phpunit": "^1.0",
@@ -26,7 +27,8 @@
     "alex-kalanis/kw_mapper": "Mapper for accessing resources in KWCMS",
     "dibi/dibi": "Dibi - smart database abstraction layer",
     "doctrine/dbal": "Doctrine Database Abstraction Layer",
-    "nette/database": "A database layer with a familiar PDO-like API but much more powerful"
+    "nette/database": "A database layer with a familiar PDO-like API but much more powerful",
+    "illuminate/database": "The Illuminate Database package"
   },
   "autoload": {
     "psr-4": {
