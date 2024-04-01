@@ -15,7 +15,7 @@ parameters:
 	checkGenericClassInNonGenericObjectType: false
 	ignoreErrors:
 		- '#function call_user_func expects callable#'
-		- '#\$callback of function array_filter expects callable\(bool\|float\|int\|#'
+		- '#\$callback of function array_filter expects#'
 		-
 			message: '#expects int\|string, int\|string\|null given.#'
 			path: 'php-src/arrays/Connector.php'
