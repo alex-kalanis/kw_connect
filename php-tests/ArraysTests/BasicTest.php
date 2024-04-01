@@ -5,35 +5,10 @@ namespace ArraysTests;
 
 use CommonTestClass;
 use kalanis\kw_connect\arrays;
-use kalanis\kw_connect\core\ConnectException;
-use kalanis\kw_connect\core\Interfaces;
 
 
 class BasicTest extends CommonTestClass
 {
-    /**
-     * @param array $data
-     * @param string|int $unknown
-     * @param string|int $exists
-     * @param mixed $expect
-     * @param int $count
-     * @dataProvider rowProvider
-     * @throws ConnectException
-     */
-    public function testRow(array $data, $unknown, $exists, $expect, $count)
-    {
-        $data = new arrays\Row($data);
-        $this->assertInstanceOf(Interfaces\IRow::class, $data);
-
-        $this->assertFalse($data->__isset($unknown));
-        $this->assertFalse(isset($data->$unknown));
-
-        $this->assertTrue($data->__isset($exists));
-        $this->assertTrue(isset($data->$exists));
-
-        $this->assertEquals($expect, $data->getValue($exists));
-    }
-
     /**
      * @param array $data
      * @param string|int $unknown

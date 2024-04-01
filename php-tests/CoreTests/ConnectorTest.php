@@ -4,9 +4,9 @@ namespace CoreTests;
 
 
 use CommonTestClass;
-use kalanis\kw_connect\arrays\Row;
 use kalanis\kw_connect\core\AConnector;
 use kalanis\kw_connect\core\Interfaces\IRow;
+use kalanis\kw_connect\core\Rows\SimpleArrayRow;
 
 
 class ConnectorTest extends CommonTestClass
@@ -42,9 +42,9 @@ class Connect extends AConnector
                 continue;
             }
             if (is_array($input)) {
-                $this->translatedData[$key] = new Row($input);
+                $this->translatedData[$key] = new SimpleArrayRow($input);
             } else {
-                $this->translatedData[$key] = new Row(['pk' => $input]);
+                $this->translatedData[$key] = new SimpleArrayRow(['pk' => $input]);
             }
         }
     }

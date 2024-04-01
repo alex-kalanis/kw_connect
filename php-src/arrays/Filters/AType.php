@@ -35,7 +35,7 @@ abstract class AType implements IFilterType
      * @throws ConnectException
      * @return FilteringArrays
      */
-    protected function getSource(): FilteringArrays
+    public function getSource(): FilteringArrays
     {
         if (!$this->dataSource) {
             throw new ConnectException('Set the datasource first!');

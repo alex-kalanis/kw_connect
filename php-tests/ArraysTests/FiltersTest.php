@@ -5,6 +5,7 @@ namespace ArraysTests;
 
 use CommonTestClass;
 use kalanis\kw_connect\arrays;
+use kalanis\kw_connect\core\Rows;
 use kalanis\kw_connect\core\AConnector;
 use kalanis\kw_connect\core\ConnectException;
 use kalanis\kw_connect\core\Interfaces\IRow;
@@ -20,6 +21,16 @@ class FiltersTest extends CommonTestClass
         $filter = new arrays\Filters\Exact();
         $this->expectException(ConnectException::class);
         $filter->setDataSource(null);
+    }
+
+    /**
+     * @throws ConnectException
+     */
+    public function testFailSource2()
+    {
+        $filter = new arrays\Filters\Exact();
+        $this->expectException(ConnectException::class);
+        $filter->getSource();
     }
 
     /**
@@ -182,7 +193,7 @@ class Connect extends AConnector
 
     public function getTranslated($data): IRow
     {
-        return new arrays\Row($data);
+        return new Rows\SimpleArrayRow($data);
     }
 
     public function fetchData(): void

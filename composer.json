@@ -17,6 +17,7 @@
     "doctrine/dbal": "~3.8",
     "nette/database": "~3.1",
     "illuminate/database": "^8.0",
+    "yiisoft/db": "^1.0",
     "shipmonk/composer-dependency-analyser": "^1.4",
     "phpstan/phpstan": "^1.0",
     "phpstan/phpstan-phpunit": "^1.0",
@@ -28,7 +29,8 @@
     "dibi/dibi": "Dibi - smart database abstraction layer",
     "doctrine/dbal": "Doctrine Database Abstraction Layer",
     "nette/database": "A database layer with a familiar PDO-like API but much more powerful",
-    "illuminate/database": "The Illuminate Database package"
+    "illuminate/database": "The Illuminate Database package",
+    "yiisoft/db": "Yii Database Library"
   },
   "autoload": {
     "psr-4": {

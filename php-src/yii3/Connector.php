@@ -1,40 +1,38 @@
 <?php
 
-namespace kalanis\kw_connect\eloquent;
+namespace kalanis\kw_connect\yii3;
 
 
-use ArrayAccess;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Collection;
 use kalanis\kw_connect\core\AConnector;
 use kalanis\kw_connect\core\Interfaces\IFilterFactory;
 use kalanis\kw_connect\core\Interfaces\IFilterSubs;
 use kalanis\kw_connect\core\Interfaces\IIterableConnector;
 use kalanis\kw_connect\core\Interfaces\IOrder;
 use kalanis\kw_connect\core\Interfaces\IRow;
-use kalanis\kw_connect\core\Rows\ArrayAccessRow;
+use kalanis\kw_connect\core\Rows\SimpleArrayRow;
+use Yiisoft\Db\Query\Query;
 
 
 /**
  * Class Connector
- * @package kalanis\kw_connect\eloquent
- * Data source is Laravel\Eloquent
+ * @package kalanis\kw_connect\yii3
+ * Data source is Dibi\Fluent
  */
 class Connector extends AConnector implements IIterableConnector
 {
-    protected Builder $queryBuilder;
+    protected Query $yiiFluent;
     protected string $primaryKey;
     /** @var array<int, array<string>> */
     protected array $sorters = [];
     protected ?int $limit = null;
     protected ?int $offset = null;
-    /** @var Collection */
-    protected $rawData = null;
+    /** @var array[][] */
+    protected array $rawData = [];
     protected bool $dataFetched = false;
 
-    public function __construct(Builder $queryBuilder, string $primaryKey)
+    public function __construct(Query $dataSource, string $primaryKey)
     {
-        $this->queryBuilder = $queryBuilder;
+        $this->yiiFluent = $dataSource;
         $this->primaryKey = $primaryKey;
     }
 
@@ -44,7 +42,7 @@ class Connector extends AConnector implements IIterableConnector
         if ($type instanceof IFilterSubs) {
             $type->addFilterFactory($this->getFilterFactory());
         }
-        $type->setDataSource($this->queryBuilder);
+        $type->setDataSource($this->yiiFluent);
         $type->setFiltering($colName, $value);
     }
 
@@ -62,41 +60,41 @@ class Connector extends AConnector implements IIterableConnector
     public function getTotalCount(): int
     {
         // count needs only filtered content
-        $dataSource = clone $this->queryBuilder;
-        return $dataSource->count();
+        $dataSource = clone $this->yiiFluent;
+        return intval($dataSource->count());
     }
 
     public function fetchData(): void
     {
         foreach (array_reverse($this->sorters) as list($colName, $direction)) {
-            $dir = IOrder::ORDER_ASC == $direction ? 'asc' : 'desc' ;
-            $this->queryBuilder->orderBy($colName, $dir);
+            $dir = IOrder::ORDER_ASC == $direction ? SORT_ASC : SORT_DESC ;
+            $this->yiiFluent->addOrderBy([$colName, $dir]);
         }
         if (!is_null($this->offset)) {
-            $this->queryBuilder->offset($this->offset);
+            $this->yiiFluent->offset($this->offset);
         }
         if (!is_null($this->limit)) {
-            $this->queryBuilder->limit($this->limit);
+            $this->yiiFluent->limit($this->limit);
         }
-        $this->rawData = $this->queryBuilder->get();
+        $this->rawData = $this->yiiFluent->all();
         $this->parseData();
     }
 
     protected function parseData(): void
     {
-        foreach ($this->rawData->getIterator() as $iterate) {
-            $this->translatedData[$this->getPrimaryKey($iterate)] = $this->getTranslated($iterate);
+        foreach ($this->rawData as $mapper) {
+            $this->translatedData[$this->getPrimaryKey($mapper)] = $this->getTranslated($mapper);
         }
     }
 
-    protected function getTranslated(ArrayAccess $data): IRow
+    protected function getTranslated(array $data): IRow
     {
-        return new ArrayAccessRow($data);
+        return new SimpleArrayRow($data);
     }
 
-    protected function getPrimaryKey(ArrayAccess $record): string
+    protected function getPrimaryKey(array $record): string
     {
-        return strval($record->offsetGet($this->primaryKey));
+        return strval($record[$this->primaryKey]);
     }
 
     public function getFilterFactory(): IFilterFactory

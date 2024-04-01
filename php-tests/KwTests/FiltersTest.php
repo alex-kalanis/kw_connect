@@ -28,6 +28,16 @@ class FiltersTest extends AKwTests
 
     /**
      * @throws ConnectException
+     */
+    public function testFailSource2()
+    {
+        $filter = new search\Filters\Exact();
+        $this->expectException(ConnectException::class);
+        $filter->getSource();
+    }
+
+    /**
+     * @throws ConnectException
      * @throws MapperException
      */
     public function testExact()

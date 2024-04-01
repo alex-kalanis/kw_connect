@@ -5,13 +5,13 @@ namespace kalanis\kw_connect\doctrine_dbal;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Query\QueryBuilder;
-use kalanis\kw_connect\arrays\Row;
 use kalanis\kw_connect\core\AConnector;
 use kalanis\kw_connect\core\Interfaces\IFilterFactory;
 use kalanis\kw_connect\core\Interfaces\IFilterSubs;
 use kalanis\kw_connect\core\Interfaces\IIterableConnector;
 use kalanis\kw_connect\core\Interfaces\IOrder;
 use kalanis\kw_connect\core\Interfaces\IRow;
+use kalanis\kw_connect\core\Rows\SimpleArrayRow;
 
 
 /**
@@ -98,7 +98,7 @@ class Connector extends AConnector implements IIterableConnector
      */
     protected function getTranslated($data): IRow
     {
-        return new Row($data);
+        return new SimpleArrayRow($data);
     }
 
     /**
