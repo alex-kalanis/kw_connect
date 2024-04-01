@@ -5,7 +5,7 @@ namespace kalanis\kw_connect\eloquent;
 
 use ArrayIterator;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Collection;
 use kalanis\kw_connect\core\AConnector;
 use kalanis\kw_connect\core\Interfaces\IFilterFactory;
 use kalanis\kw_connect\core\Interfaces\IFilterSubs;
@@ -71,7 +71,13 @@ class Connector extends AConnector implements IIterableConnector
             $dir = IOrder::ORDER_ASC == $direction ? 'asc' : 'desc' ;
             $this->queryBuilder->orderBy($colName, $dir);
         }
-        $this->rawData = $this->queryBuilder->offset($this->offset)->limit($this->limit)->get();
+        if (!is_null($this->offset)) {
+            $this->queryBuilder->offset($this->offset);
+        }
+        if (!is_null($this->limit)) {
+            $this->queryBuilder->limit($this->limit);
+        }
+        $this->rawData = $this->queryBuilder->get();
         $this->parseData();
     }
 
